@@ -15,7 +15,12 @@ function func_private_template_short_code( $atts ) {
 	    		foreach ( $results_inner as $result_inner ) {
 		    		$result_array[$result_inner->meta_key] = $result_inner->meta_value;
 	    		}
-				$return = '<table class="has-fixed-layout">
+
+	    		$return = '';
+	    		if(isset($atts['page_redirect'])) {
+		    		$return .= '<meta http-equiv="refresh" content="900; url='.$atts['page_redirect'].'">';
+		    	}
+				$return .= '<table class="has-fixed-layout">
 				          <tbody>
 				            <tr>
 				              <td>Band ID Number</td>
